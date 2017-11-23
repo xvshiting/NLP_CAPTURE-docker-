@@ -1,0 +1,11 @@
+.DS_Store
+/src/__pycache__
+tags
+env.vim
+*.pyc
+..gitignore.un~
+.gitignore.un~
+test/
+!.gitignore
+config/
+log/
