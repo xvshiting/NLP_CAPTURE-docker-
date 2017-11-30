@@ -17,6 +17,9 @@ def process(records):
 		capture_content=capture().parse_re(contents)
 		res[key_ID]=tools.content2dict(capture_content)
 	return res
+def listJson():
+	res=''
+	return list(capture().re_dict.keys())
 def getJson(name):
 	res=''
 	try:
@@ -31,7 +34,7 @@ def UpdateJson(name,content):
 	file_path=os.sep.join([capture().re_config_dir,name+'.json'])
 	with open(file_path,'w')as f:
 		json.dump(content,f)
-	return "Successful!
+	return "Successful!"
 def AddJson(name,content):
 	#	update the memory
 	if name in capture().re_dict:

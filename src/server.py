@@ -51,7 +51,10 @@ class UpdateJsonHandler(tornado.web.RequestHandler):
         param = json.loads(param)
         res=mp.UpdateJson(name,param)
         self.write(res)
-
+class ListJsonHandler(tornado.web.RequestHandler):
+    def get(self):
+        res=mp.listJson()
+        self.write(json.dumps({"json_list":res}))
 def make_app():
     return tornado.web.Application([
         (r"/", MainHandler),
@@ -59,6 +62,7 @@ def make_app():
         (r"/AddJson/(.*)",AddJsonHandler),
         (r"/DelJson/(.*)",DelJsonHandler),
         (r"/UpdataJson/(.*)",UpdateJsonHandler),
+        (r"/ListJson",ListJsonHandler),
     ])
 if __name__ == "__main__":
     logging.basicConfig(filename='log/capture.log',datefmt='%Y-%m-%d %I:%M:%S %p',format='%(asctime)s : L(%(levelname)s) : %(message)s',level=logging.WARNING)
