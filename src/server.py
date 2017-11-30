@@ -65,7 +65,7 @@ def make_app():
         (r"/ListJson",ListJsonHandler),
     ])
 if __name__ == "__main__":
-    logging.basicConfig(filename='log/capture.log',datefmt='%Y-%m-%d %I:%M:%S %p',format='%(asctime)s : L(%(levelname)s) : %(message)s',level=logging.WARNING)
+    logging.basicConfig(datefmt='%Y-%m-%d %I:%M:%S %p',format='%(asctime)s : L(%(levelname)s) : %(message)s',level=logging.WARNING)
     app = make_app()
     app.listen(8899,address="0.0.0.0")
     tornado.ioloop.IOLoop.current().start()
